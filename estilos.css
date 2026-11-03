@@ -1,0 +1,394 @@
+/* ============================================
+   Blog de Valentina · estilos compartidos
+   Paleta: violeta profundo, lila, rosa y menta
+   ============================================ */
+
+:root {
+  --tinta: #241733;
+  --tinta-suave: #5b4a72;
+  --papel: #f7f3fc;
+  --blanco: #ffffff;
+  --violeta: #6c3fc5;
+  --violeta-profundo: #3f1f87;
+  --rosa: #f4a6c8;
+  --menta: #bfeadb;
+  --lila: #e6dcf6;
+  --linea: #dacdee;
+
+  --titulos: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --texto: "Literata", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--texto);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--tinta);
+  background: var(--papel);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--violeta); }
+a:hover { color: var(--violeta-profundo); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--rosa);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Estructura general ---------- */
+
+.estructura {
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- Menú lateral ---------- */
+
+.lateral {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 2rem 1.5rem;
+  background: var(--violeta-profundo);
+  color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.marca {
+  font-family: var(--titulos);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.marca small {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--texto);
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: var(--lila);
+}
+
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--titulos);
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--lila);
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  border-radius: 0 12px 12px 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--blanco);
+}
+
+.menu a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--blanco);
+  border-left-color: var(--rosa);
+  font-weight: 800;
+}
+
+/* ---------- Contenido principal ---------- */
+
+main {
+  padding: 3.5rem clamp(1.25rem, 5vw, 4.5rem) 3rem;
+  max-width: 62rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--titulos);
+  line-height: 1.08;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p { margin: 0 0 1rem; }
+
+.texto { max-width: 64ch; }
+
+.bajada {
+  font-size: 1.25rem;
+  color: var(--tinta-suave);
+  max-width: 52ch;
+  margin-top: 1.25rem;
+}
+
+.pagina-titulo { margin-bottom: 2.5rem; }
+
+.seccion { margin-top: 3.5rem; }
+
+/* ---------- Retratos y fotos ---------- */
+
+.retrato {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--rosa);
+  color: var(--violeta-profundo);
+  font-family: var(--titulos);
+  font-weight: 800;
+  overflow: hidden;
+  margin: 0;
+}
+
+.retrato img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.retrato span { font-size: 5rem; line-height: 1; }
+
+.retrato--yo {
+  width: min(100%, 340px);
+  aspect-ratio: 4 / 5;
+  border-radius: 58% 42% 52% 48% / 46% 54% 46% 54%;
+}
+
+.retrato--gato {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  background: var(--menta);
+}
+
+/* ---------- Inicio ---------- */
+
+.portada {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.explorar {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  border-top: 2px solid var(--tinta);
+}
+
+.explorar li { border-bottom: 1px solid var(--linea); }
+
+.explorar a {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: var(--tinta);
+  transition: background 0.2s, padding-left 0.2s;
+}
+
+.explorar a:hover {
+  background: var(--lila);
+  padding-left: 1.1rem;
+}
+
+.explorar strong {
+  font-family: var(--titulos);
+  font-size: 1.3rem;
+  color: var(--violeta);
+}
+
+.explorar span { color: var(--tinta-suave); }
+
+/* ---------- Datos rápidos ---------- */
+
+.datos {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.6rem 1.5rem;
+  margin: 0;
+  padding: 1.5rem;
+  background: var(--blanco);
+  border-left: 6px solid var(--violeta);
+  border-radius: 0 16px 16px 0;
+  max-width: 40rem;
+}
+
+.datos dt {
+  font-family: var(--titulos);
+  font-weight: 600;
+  color: var(--violeta);
+}
+
+.datos dd { margin: 0; }
+
+/* ---------- Chips ---------- */
+
+.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chips li {
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--lila);
+  font-family: var(--titulos);
+  font-weight: 500;
+  font-size: 0.98rem;
+}
+
+.chips--menta li { background: var(--menta); }
+.chips--rosa li { background: #fbd9e8; }
+
+/* ---------- Bloques con borde (listas de gustos) ---------- */
+
+.bloque {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--linea);
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  gap: 1.5rem;
+}
+
+.bloque h2 { font-size: 1.5rem; margin: 0; }
+.bloque p:last-child { margin-bottom: 0; }
+
+/* ---------- Mascotas ---------- */
+
+.gatos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+.gato h2 { margin-top: 1.25rem; margin-bottom: 0.25rem; }
+
+.edad {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  background: var(--violeta);
+  color: var(--blanco);
+  font-family: var(--titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- Viajes ---------- */
+
+.region {
+  margin-top: 1.75rem;
+}
+
+.region h2 { font-size: 1.3rem; }
+
+.cierre {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: var(--violeta-profundo);
+  color: var(--blanco);
+  border-radius: 20px;
+  font-family: var(--titulos);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+/* ---------- Pie de página ---------- */
+
+.pie {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--linea);
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+/* ---------- Celular y tablet ---------- */
+
+@media (max-width: 860px) {
+  .estructura { grid-template-columns: 1fr; }
+
+  .lateral {
+    position: static;
+    height: auto;
+    padding: 1.25rem 1.25rem 1rem;
+    gap: 1rem;
+  }
+
+  .menu ul { flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
+
+  .menu a {
+    border-left: 0;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.98rem;
+  }
+
+  .menu a[aria-current="page"] { background: var(--rosa); color: var(--violeta-profundo); }
+
+  main { padding-top: 2.25rem; }
+
+  .portada { grid-template-columns: 1fr; }
+  .portada .retrato--yo { order: -1; width: min(70%, 280px); }
+
+  .explorar a { grid-template-columns: 1fr; gap: 0.1rem; }
+
+  .bloque { grid-template-columns: 1fr; gap: 0.5rem; }
+
+  .gatos { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
